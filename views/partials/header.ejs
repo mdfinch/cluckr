@@ -32,5 +32,22 @@
                     <a class="nav-link" href="../clucks/new">New Cluck</a>
                 </h3>
             </li>
+            <% if (loggedInUserName) { %>
+            <li class="nav-item">
+                <span class="navbar-text mr-2 text-success"><strong><%= loggedInUserName %></strong></span>
+            </li>
+            <li class="nav-item">
+                <form action="/sign_out" method="POST" class="form-inline">
+                    <button class="btn btn-outline-dark">Sign Out</button>
+                </form>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+                <form action="/sign_in" method="POST" class="form-inline">
+                    <input type="text" name="username" placeholder="Enter your username..." class="form-control mr-2" />
+                    <button class="btn btn-outline-dark" type="submit">Sign In</button>
+                </form>
+            </li>
+            <% } %>
         </ul>
     </header>

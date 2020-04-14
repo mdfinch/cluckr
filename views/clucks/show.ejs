@@ -1,0 +1,28 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+    <h1>Clucks</h1>
+    <div class="card mb-4">
+        <% if(cluck.image_url) { %> 
+            <img class="smal-image" src="<%= cluck.image_url %>">
+        <% } %> 
+        
+        <div class="card body">            
+            <p class="card-text">
+                <div><%= cluck.content %></div>
+                <div><em>Clucked at <%= new Date(cluck.created_at).toLocaleString() %> </em></div>
+                <div><em>Updated at <%= new Date(cluck.updated_at).toLocaleString() %> </em></div>
+            </p>
+
+            <div class="d-flex">
+                <a href="/clucks/<%= cluck.id %>/edit" class="btn btn-outline-success mr-2">
+                    Edit
+                </a>
+            </div>
+            <form method="POST" action="/clucks/<%= cluck.id %>" >
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="submit" class="btn btn-outline-danger" value="Delete" />
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>

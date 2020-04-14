@@ -2,12 +2,14 @@
 exports.up = function (knex, Promise) {
     return knex.schema.createTable("clucks", table => {
         table.increments("id");
-        table.string("image_url")
+        table.string("username")
+        table.string("image_url");
         table.text("content");
-        table.timestamps(); // This creates both created_at and updated_at columns
+        table.timestamp('created_at').default(knex.fn.now());
+        table.timestamp('updated_at').default(knex.fn.now());
     });
 };
 
-exports.down = function (knex) {
+exports.down = function (knex, Promise) {
     return knex.schema.dropTable("clucks");
 };

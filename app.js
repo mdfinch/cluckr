@@ -38,6 +38,9 @@ app.use(
 const baseRouter = require("./routes/baseRouter");
 app.use("/", baseRouter);
 
+const cluckRouter = require("./routes/cluckRouter");
+app.use("/clucks", cluckRouter);
+
 const PORT = 4000;
 const ADDRESS = "localhost";
 app.listen(PORT, ADDRESS, () => {
