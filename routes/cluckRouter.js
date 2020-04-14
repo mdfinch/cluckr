@@ -9,6 +9,7 @@ router.get("/new", (request, response) => {
 
 router.post("/", (request, response) => {
 
+
   const {username, image_url, content} = request.body;
   knex("clucks")
     .insert({
@@ -76,7 +77,6 @@ router.patch("/:id", (request, response) => {
     username: request.body.username,
     image_url: request.body.image_url,
     content: request.body.content,
-    updated_at: getDate()
   };
 
   knex("clucks")

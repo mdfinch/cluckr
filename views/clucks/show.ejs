@@ -9,6 +9,7 @@
         <div class="card body">            
             <p class="card-text">
                 <div><%= cluck.content %></div>
+                <div>Created by <%= cluck.username %> </div>
                 <div><em>Clucked at <%= new Date(cluck.created_at).toLocaleString() %> </em></div>
                 <div><em>Updated at <%= new Date(cluck.updated_at).toLocaleString() %> </em></div>
             </p>
