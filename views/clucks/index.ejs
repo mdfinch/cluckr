@@ -1,18 +1,27 @@
 <%- include('../partials/header.ejs') %>
 <div class="container">
-    <h1>Clucks</h1>
-
     <div class="cluck-card">
-        <% for(let cluck of clucks) { %> 
-            <div class="card mb-4">
-                <div class="card body">
-                    <a href="/clucks/<%= cluck.id %>">
-                        <img class="smal-image" src="<%= cluck.image_url %>">  
-                    </a>
-                    <p class="card-text"><%= cluck.content %> </p>
-                </div>
+        <% if (clucks.length == 0) { %>
+        <h1>There are no clucks</h1>
+        <% } else { %>
+        <% for(let cluck of clucks) { %>
+        <div class="card mb-4">
+            <div class="card body">
+                <a href="/clucks/<%= cluck.id %>">
+                    <div>
+                        <% if(cluck.image_url) { %> 
+                            <img src="<%= cluck.image_url %>" class="rounded float-left" alt="icon" width="20%"  style="margin: 2%;">
+                        <% } else { %> 
+                            <img src="/images/crossout.png" alt="no_icon" width="20%">
+                            <% } %> 
+                    </div>
+                </a>
+                <p class="card-text"><%= cluck.content %> </p>
+                <p class="card-text">Clucked by: <%= cluck.username %> </p>
             </div>
+        </div>
         <% } %>
+        <% }  %>
     </div>
 </div>
 <%- include('../partials/footer.ejs') %>

@@ -9,7 +9,6 @@ router.get("/new", (request, response) => {
 
 router.post("/", (request, response) => {
 
-
   const {username, image_url, content} = request.body;
   knex("clucks")
     .insert({
@@ -19,7 +18,7 @@ router.post("/", (request, response) => {
     })
     .returning("*")
     .then((cluck) => {
-      response.redirect(`/clucks/${cluck[0].id}`);
+      response.redirect(`/clucks`);
     });
 });
 

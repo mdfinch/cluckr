@@ -14,39 +14,40 @@
 
 <body>
     <header>
-        <ul class="nav">
+        <ul class="nav" style="flex-direction: row; justify-content: space-around;">
             <li class="nav-item">
                 <h3>
-                    <a class="nav-link" href="/">
+                    <a class="nav-link" href="../clucks">
                         <img src="/images/linux.png" alt="penguin" height="50rem">
                     </a>
                 </h3>
             </li>
             <li class="nav-item">
-                <h3>
-                    <a class="nav-link" href="../clucks">Clucks</a>
+                <% if (loggedInUserName) { %>
+                    <h3>
+                    <a class="nav-link" href="../clucks/new">CLUCK!</a>
                 </h3>
-            </li>
-            <li class="nav-item">
-                <h3>
-                    <a class="nav-link" href="../clucks/new">New Cluck</a>
-                </h3>
+                <% } else { %>
+                    <h3>
+                        <a class="nav-link" href="/welcome">CLUCK!</a>
+                    </h3>                    <% } %>
+
             </li>
             <% if (loggedInUserName) { %>
+
             <li class="nav-item">
                 <span class="navbar-text mr-2 text-success"><strong><%= loggedInUserName %></strong></span>
-            </li>
-            <li class="nav-item">
-                <form action="/sign_out" method="POST" class="form-inline">
-                    <button class="btn btn-outline-dark">Sign Out</button>
-                </form>
+
+                <a href="/welcome">
+                    <button class="btn btn-outline-dark">Sign Out Page</button>
+                </a>
             </li>
             <% } else { %>
             <li class="nav-item">
-                <form action="/sign_in" method="POST" class="form-inline">
-                    <input type="text" name="username" placeholder="Enter your username..." class="form-control mr-2" />
-                    <button class="btn btn-outline-dark" type="submit">Sign In</button>
-                </form>
+                <a href="/welcome">
+                    <button class="btn btn-outline-dark" type="submit">Sign In Page</button>
+                </a>
+            </a>
             </li>
             <% } %>
         </ul>

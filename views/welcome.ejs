@@ -2,18 +2,17 @@
 <div class="container-fluid">
     <h1 style="margin: 1rem;">Welcome to Cluckr</h1>
     <% if (loggedInUserName) { %>
-
-    <span><strong><%= loggedInUserName %></strong></span>
+    <span>You are signed in as: <strong><%= loggedInUserName %></strong></span>
     <br>
     <form action="/sign_out" method="POST">
         <button class="btn btn-outline-dark">Sign Out</button>
     </form>
 
     <% } else { %>
-
+    <h3>Please sign in</h3>
     <form action="/sign_in" method="POST">
         <input type="text" name="username" placeholder="Enter your username..." />
-        <button class="btn btn-outline-dark" type="submit">Sign In</button>
+        <button class="btn btn-outline-dark" type="submit">Sign In </button>
     </form>
     <% } %>
 </div>
