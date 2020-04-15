@@ -1,12 +1,12 @@
 <%- include('../partials/header.ejs') %>
 <div class="container border border-dark">
-    <div class="card mb-4  border-dark" style="margin: 1rem;">
-        <div class="card body d-inline">
-            <h3 class="card-text d-inline"><%= cluck.username %> </h3>
+    <div class="card mb-4  border border-dark" style="margin: 1rem;">
+        <div class="d-inline" style="margin: .5rem;">
+            <h3 class="d-inline"><%= cluck.username %> </h3>
             <span><em>Clucked at <%= new Date(cluck.created_at).toLocaleString() %> </em></span>
         </div>
         <div>
-            <h4 class="card-text"><%= cluck.content %> </h4>
+            <h4 class="card-text" style="margin: .5rem;" ><%= cluck.content %> </h4>
         </div>
         <div>
             <% if(cluck.image_url) { %>
