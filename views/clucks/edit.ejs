@@ -1,8 +1,15 @@
 <%- include('../partials/header.ejs') %>
-<div class="container">
+<div class="container border border-dark">
     <h1>Edit Cluck</h1>
     <form method="POST" action="/clucks/<%= cluck.id %>">
         <input type="hidden" name="_method" value="PATCH" />
+        <div class="form-group">
+            <textarea 
+                name="content" 
+                class="form-control" 
+                ><%= cluck.content %>
+            </textarea>
+        </div>
         <div class="form-group">
             <input 
                 type="url" 
@@ -12,13 +19,6 @@
             />
         </div>
 
-        <div class="form-group">
-            <textarea 
-                name="content" 
-                class="form-control" 
-                ><%= cluck.content %>
-            </textarea>
-        </div>
       <input type="submit" class="btn btn-outline-success" value="Submit" />
     </form>
 </div>

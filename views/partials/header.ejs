@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="container border border-dark">
         <ul class="nav" style="flex-direction: row; justify-content: space-around;">
             <li class="nav-item">
                 <h3>
@@ -39,13 +39,13 @@
                 <span class="navbar-text mr-2 text-success"><strong><%= loggedInUserName %></strong></span>
 
                 <a href="/welcome">
-                    <button class="btn btn-outline-dark">Sign Out Page</button>
+                    <button class="btn btn-outline-dark" style="margin: 1rem;">Sign Out Page</button>
                 </a>
             </li>
             <% } else { %>
             <li class="nav-item">
                 <a href="/welcome">
-                    <button class="btn btn-outline-dark" type="submit">Sign In Page</button>
+                    <button class="btn btn-outline-dark" style="margin: 1rem;">Sign In Page</button>
                 </a>
             </a>
             </li>

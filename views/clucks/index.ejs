@@ -1,23 +1,28 @@
 <%- include('../partials/header.ejs') %>
-<div class="container">
+<div class="container border border-dark">
     <div class="cluck-card">
         <% if (clucks.length == 0) { %>
         <h1>There are no clucks</h1>
         <% } else { %>
+
         <% for(let cluck of clucks) { %>
-        <div class="card mb-4">
-            <div class="card body">
+        <div class="card mb-4  border-dark" style="margin: 1rem;">
+            <div class="card body d-inline">
+                <h3 class="card-text d-inline"><%= cluck.username %> </h3>
+                <span><em>Clucked at <%= new Date(cluck.created_at).toLocaleString() %> </em></span>
+            </div>
+            <div>
+                <h4 class="card-text"><%= cluck.content %> </h4>
+            </div>
+            <div>
                 <a href="/clucks/<%= cluck.id %>">
-                    <div>
-                        <% if(cluck.image_url) { %> 
-                            <img src="<%= cluck.image_url %>" class="rounded float-left" alt="icon" width="20%"  style="margin: 2%;">
-                        <% } else { %> 
-                            <img src="/images/crossout.png" alt="no_icon" width="20%">
-                            <% } %> 
-                    </div>
+                    <% if(cluck.image_url) { %>
+                    <img src="<%= cluck.image_url %>" class="rounded float-left" alt="icon" width="40%"
+                        style="margin: 2%;">
+                    <% } else { %>
+                    <img src="/images/crossout.png" alt="no_icon" width="40%">
+                    <% } %>
                 </a>
-                <p class="card-text"><%= cluck.content %> </p>
-                <p class="card-text">Clucked by: <%= cluck.username %> </p>
             </div>
         </div>
         <% } %>
