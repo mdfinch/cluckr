@@ -1,0 +1,25 @@
+<%- include('../partials/header.ejs') %>
+<div class="container border border-dark">
+    <h1>Edit Cluck</h1>
+    <form method="POST" action="/clucks/<%= cluck.id %>">
+        <input type="hidden" name="_method" value="PATCH" />
+        <div class="form-group">
+            <textarea 
+                name="content" 
+                class="form-control" 
+                ><%= cluck.content %>
+            </textarea>
+        </div>
+        <div class="form-group">
+            <input 
+                type="url" 
+                class="form-control" 
+                name="image_url" 
+                value="<%= cluck.image_url %>"
+            />
+        </div>
+
+      <input type="submit" class="btn btn-outline-success" value="Submit" />
+    </form>
+</div>
+<%- include('../partials/footer.ejs') %>

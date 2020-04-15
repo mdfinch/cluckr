@@ -1,0 +1,22 @@
+<%- include("./partials/header.ejs") %>
+<div class="container border border-dark">
+    <h1 style="margin: 1rem;">Welcome to Cluckr</h1>
+    <% if (loggedInUserName) { %>
+    <span style="margin: 1rem;">You are signed in as: <strong><%= loggedInUserName %></strong></span>
+    <br>
+    <form action="/sign_out" method="POST">
+        <button class="btn btn-outline-dark" style="margin: 1rem;">Sign Out</button>
+    </form>
+
+    <% } else { %>
+    <div class="border border-dark" style="margin: 1rem">
+        <h3 style="margin: 1rem;">Please sign in</h3>
+        <form action="/sign_in" method="POST">
+            <input style="margin: .5rem" type="text" name="username" placeholder="Enter your username..." />
+            <button class="btn btn-outline-dark" type="submit">Sign In </button>
+        </form>
+    </div>
+
+    <% } %>
+</div>
+<%- include("./partials/footer.ejs") %>

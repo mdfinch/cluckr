@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cluckr</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header class="container border border-dark">
+        <ul class="nav" style="flex-direction: row; justify-content: space-around;">
+            <li class="nav-item">
+                <h3>
+                    <a class="nav-link" href="../clucks">
+                        <img src="/images/linux.png" alt="penguin" height="50rem">
+                    </a>
+                </h3>
+            </li>
+            <li class="nav-item">
+                <% if (loggedInUserName) { %>
+                    <h3>
+                    <a class="nav-link" href="../clucks/new">CLUCK!</a>
+                </h3>
+                <% } else { %>
+                    <h3>
+                        <a class="nav-link" href="/welcome">CLUCK!</a>
+                    </h3>                    <% } %>
+
+            </li>
+            <% if (loggedInUserName) { %>
+
+            <li class="nav-item">
+                <span class="navbar-text mr-2 text-success"><strong><%= loggedInUserName %></strong></span>
+
+                <a href="/welcome">
+                    <button class="btn btn-outline-dark" style="margin: 1rem;">Sign Out Page</button>
+                </a>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+                <a href="/welcome">
+                    <button class="btn btn-outline-dark" style="margin: 1rem;">Sign In Page</button>
+                </a>
+            </a>
+            </li>
+            <% } %>
+        </ul>
+    </header>
